@@ -1,56 +1,95 @@
 :root {
-    --gold: #d4af37;
-    --white: #ffffff;
-    --dark: #2c3e50;
+    --primario: #d35400;
+    --oscuro: #2c3e50;
+    --claro: #ecf0f1;
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+body {
     font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background-color: var(--claro);
 }
 
-/* Imagen de fondo del negocio */
-.hero {
-    background: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Efecto Glassmorphism (Vidrio) */
-.overlay-card {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 40px;
-    border-radius: 20px;
-    color: var(--white);
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.37);
-}
-
-h1 span { color: var(--gold); }
-
-/* Botón de Delivery Flotante */
-.whatsapp-btn {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    background: #25d366;
+header {
+    background: var(--oscuro);
     color: white;
-    padding: 15px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    z-index: 1000;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.hidden { display: none; }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Contenedor de la lista */
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 15px; /* Espacio entre botones */
+}
+
+/* Estilo de los enlaces como botones modernos */
+nav ul li a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 50px; /* Bordes redondeados tipo cápsula */
+    transition: all 0.3s ease; /* Suaviza el cambio de color */
+    border: 1px solid transparent;
+}
+
+/* Efecto Hover (al pasar el mouse) */
+nav ul li a:hover { 
+    background-color: ; /* El naranja que definimos */
+    border: 1px solid white;
+    transform: translateY(-2px); /* Pequeño salto hacia arriba */
+}
+.hero {
+    height: 40vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.icon-card { font-size: 3rem; color: var(--primario); margin-bottom: 10px; }
+
+.btn-whatsapp {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.emblemas { background: #fff; padding: 3rem 1rem; text-align: center; }

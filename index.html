@@ -3,42 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panadería & Pastelería Delicia | Pedidos Online</title>
+    <title>Panadería & Pastelería | Delicias Artesanales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <a href="https://wa.me/tu-numero" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i> Pedir Delivery
-    </a>
 
-    <main class="hero">
-        <div class="overlay-card">
-            <header>
-                <span class="badge">Abierto ahora</span>
-                <h1>Panadería & Pastelería <span>Delicia</span></h1>
-                <p class="slogan">El sabor de lo artesanal en tu mesa cada mañana.</p>
-            </header>
+    <header>
+        <nav>
+            <div class="logo">Miga & Sabor</div>
+            <ul>
+                <li><a href="#Pasteles">Catálogo de Pasteles</a></li>
+                <li><a href="#emblemas">Ingredientes</a></li>
+                <li><a href="#pedidos">Pedidos</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <section class="info-relevante">
-                <div class="feature">
-                    <i class="fas fa-bread-slice"></i>
-                    <h3>Pan Recién Horneado</h3>
-                    <p>Salidas diarias: 7:00 AM y 5:00 PM</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-motorcycle"></i>
-                    <h3>Delivery Express</h3>
-                    <p>Llegamos en menos de 30 min a todo el sector.</p>
-                </div>
-            </section>
+    <section class="hero">
+        <h1>Horneamos con pasion y sabor</h1>
+        <p>Tradición y sabor en cada mordida.</p>
+    </section>
 
-            <footer class="cta">
-                <button class="btn-primary" onclick="mostrarPromo()">Ver Promo del Día</button>
-                <p id="promo-text" class="hidden">¡2x1 en Croissants hoy!</p>
-            </footer>
+    <main id="Pasteles">
+        <h2 class="section-title">Catálogo de Pasteles</h2>
+        
+        <div class="grid-container">
+            <div class="card">
+                <i class="fa-solid fa-bread-slice icon-card"></i>
+                <h3>Pan de Masa Madre</h3>
+                <p>Sabores: Integral, Nueces, Tradicional.</p>
+                <button onclick="agregarAlPedido('Pan de Masa Madre')">Añadir</button>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-cake-candles icon-card"></i>
+                <h3>Torta Selva Negra</h3>
+                <p>Sabores: Chocolate amargo y cerezas.</p>
+                <button onclick="agregarAlPedido('Torta Selva Negra')">Añadir</button>
+            </div>
         </div>
     </main>
+
+    <section id="emblemas" class="emblemas">
+        <h2>Ingredientes Emblema</h2>
+        <div class="emblema-info">
+            <div class="item-emblema">
+                <i class="fa-solid fa-wheat-awn"></i>
+                <p><strong>Trigo Orgánico:</strong> Base de nuestros panes rústicos.</p>
+            </div>
+            <div class="item-emblema">
+                <i class="fa-solid fa-droplet"></i>
+                <p><strong>Mantequilla Pura:</strong> El secreto de nuestros pasteles.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pedidos" class="delivery-section">
+        <h2><i class="fa-solid fa-truck-fast"></i> Solicitar Delivery</h2>
+        <div id="resumen-pedido">
+            <p>Tu pedido está vacío.</p>
+        </div>
+        <button class="btn-whatsapp" onclick="enviarWhatsApp()">
+            <i class="fa-brands fa-whatsapp"></i> Enviar Pedido al Chatbot
+        </button>
+    </section>
 
     <script src="script.js"></script>
 </body>
