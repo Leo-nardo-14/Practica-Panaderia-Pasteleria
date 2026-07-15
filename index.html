@@ -4,50 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panadería & Pastelería | Delicias Artesanales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <div class="scroll-progress" aria-hidden="true">
+        <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
+    </div>
+
     <header>
         <nav>
             <div class="logo">Miga & Sabor</div>
-            <ul>
+            <ul id="nav-menu">
+                <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#Pasteles">Catálogo de Pasteles</a></li>
                 <li><a href="#emblemas">Ingredientes</a></li>
-                <li><a href="#pedidos">Pedidos</a></li>
+                <li>
+                    <a href="#pedidos" class="pedidos-link">
+                        Pedidos
+                        <span class="cart-indicator" aria-hidden="true">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span id="cart-count" class="cart-count">0</span>
+                        </span>
+                    </a>
+                </li>
             </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-button theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </button>
+                <button id="menu-toggle" class="icon-button menu-toggle" type="button" aria-label="Abrir menú" aria-controls="nav-menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Horneamos con pasion y sabor</h1>
+        <span class="hero-eyebrow">Panadería artesanal desde 2012</span>
+        <h1>Horneamos con pasión y sabor</h1>
         <p>Tradición y sabor en cada mordida.</p>
     </section>
 
+    <div class="section-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,45 C240,95 480,0 720,42 C960,84 1200,10 1440,48 L1440,80 L0,80 Z"></path>
+        </svg>
+    </div>
+
+    <section id="nosotros" class="about-section">
+        <div class="about-media">
+            <img src="https://images.unsplash.com/photo-1726749136023-4b789df06c66?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Panadera amasando pan artesanal en el obrador" loading="lazy">
+            <span class="about-stamp"><strong>12+</strong> años horneando</span>
+        </div>
+        <div class="about-content">
+            <span class="section-kicker">Nuestra historia</span>
+            <h2>El oficio de hornear, compartido con cariño</h2>
+            <p>Miga &amp; Sabor nació como un pequeño obrador familiar, inspirado por recetas que han pasado de generación en generación.</p>
+            <p>Cada madrugada preparamos nuestras masas con ingredientes honestos, fermentaciones lentas y el tiempo que exige un buen pan.</p>
+            <p>Hoy seguimos horneando en lotes pequeños para ofrecer piezas frescas, cercanas y llenas de sabor.</p>
+        </div>
+    </section>
+
+    <div class="recipe-divider" aria-hidden="true">
+        <span></span><i class="fa-solid fa-wheat-awn"></i><span></span>
+    </div>
+
     <main id="Pasteles">
+        <span class="section-kicker">Recién horneado</span>
         <h2 class="section-title">Catálogo de Pasteles</h2>
         
         <div class="grid-container">
-            <div class="card">
-                <i class="fa-solid fa-bread-slice icon-card"></i>
-                <h3>Pan de Masa Madre</h3>
-                <p>Sabores: Integral, Nueces, Tradicional.</p>
-                <p><strong>S/ 12.00</strong></p>
-                <button onclick="agregarAlPedido('Pan de Masa Madre', 12.00)">Añadir</button>
+            <div class="card flip-card">
+                <div class="card-inner">
+                    <div class="card-face card-front">
+                        <span class="product-badge badge-new">Nuevo</span>
+                        <button class="card-flip-trigger" type="button" aria-label="Ver ingredientes del Pan de Masa Madre" aria-expanded="false">
+                            <img class="card-image" src="https://images.unsplash.com/photo-1767065887975-a09671b8d683?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Pan de masa madre artesanal recién horneado" loading="lazy">
+                        </button>
+                        <div class="card-content">
+                            <h3>Pan de Masa Madre</h3>
+                            <p>Sabores: Integral, Nueces, Tradicional.</p>
+                            <p class="product-price">S/ 12.00</p>
+                            <button class="add-button" type="button" onclick="agregarAlPedido('Pan de Masa Madre', 12.00)">Añadir</button>
+                        </div>
+                    </div>
+                    <div class="card-face card-back" aria-hidden="true">
+                        <button class="flip-back" type="button" aria-label="Volver al producto Pan de Masa Madre">
+                            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                        <i class="fa-solid fa-wheat-awn card-back-icon" aria-hidden="true"></i>
+                        <h3>Ingredientes principales</h3>
+                        <ul>
+                            <li>Harina de trigo orgánico</li>
+                            <li>Agua filtrada</li>
+                            <li>Sal marina</li>
+                            <li>Masa madre natural</li>
+                        </ul>
+                        <p class="flip-hint">Toca la tarjeta para volver</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="card">
-                <i class="fa-solid fa-cake-candles icon-card"></i>
-                <h3>Torta Selva Negra</h3>
-                <p>Sabores: Chocolate amargo y cerezas.</p>
-                <p><strong>S/ 65.00</strong></p>
-                <button onclick="agregarAlPedido('Torta Selva Negra', 65.00)">Añadir</button>
+            <div class="card flip-card">
+                <div class="card-inner">
+                    <div class="card-face card-front">
+                        <span class="product-badge">Más vendido</span>
+                        <button class="card-flip-trigger" type="button" aria-label="Ver ingredientes de la Torta Selva Negra" aria-expanded="false">
+                            <img class="card-image" src="https://images.unsplash.com/photo-1469533667357-006056eaf780?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Torta de chocolate con cerezas y frutos rojos" loading="lazy">
+                        </button>
+                        <div class="card-content">
+                            <h3>Torta Selva Negra</h3>
+                            <p>Sabores: Chocolate amargo y cerezas.</p>
+                            <p class="product-price">S/ 65.00</p>
+                            <button class="add-button" type="button" onclick="agregarAlPedido('Torta Selva Negra', 65.00)">Añadir</button>
+                        </div>
+                    </div>
+                    <div class="card-face card-back" aria-hidden="true">
+                        <button class="flip-back" type="button" aria-label="Volver al producto Torta Selva Negra">
+                            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                        <i class="fa-solid fa-cake-candles card-back-icon" aria-hidden="true"></i>
+                        <h3>Ingredientes principales</h3>
+                        <ul>
+                            <li>Chocolate amargo</li>
+                            <li>Cerezas seleccionadas</li>
+                            <li>Crema batida</li>
+                            <li>Kirsch</li>
+                        </ul>
+                        <p class="flip-hint">Toca la tarjeta para volver</p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
+    <div class="recipe-divider" aria-hidden="true">
+        <span></span><i class="fa-solid fa-spoon"></i><span></span>
+    </div>
+
     <section id="emblemas" class="emblemas">
+        <span class="section-kicker">La diferencia está en el origen</span>
         <h2>Ingredientes Emblema</h2>
         <div class="emblema-info">
             <div class="item-emblema">
@@ -61,6 +164,10 @@
         </div>
     </section>
 
+    <div class="recipe-divider" aria-hidden="true">
+        <span></span><i class="fa-solid fa-heart"></i><span></span>
+    </div>
+
     <section id="pedidos" class="delivery-section">
         <h2><i class="fa-solid fa-truck-fast"></i> Solicitar Delivery</h2>
         <div id="resumen-pedido">
@@ -70,6 +177,8 @@
             <i class="fa-brands fa-whatsapp"></i> Enviar Pedido al Chatbot
         </button>
     </section>
+
+    <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="false"></div>
 
     <script src="script.js"></script>
 </body>
