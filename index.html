@@ -12,11 +12,29 @@
     <header>
         <nav>
             <div class="logo">Miga & Sabor</div>
-            <ul>
+            <ul id="nav-menu">
                 <li><a href="#Pasteles">Catálogo de Pasteles</a></li>
                 <li><a href="#emblemas">Ingredientes</a></li>
-                <li><a href="#pedidos">Pedidos</a></li>
+                <li>
+                    <a href="#pedidos" class="pedidos-link">
+                        Pedidos
+                        <span class="cart-indicator" aria-hidden="true">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span id="cart-count" class="cart-count">0</span>
+                        </span>
+                    </a>
+                </li>
             </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-button theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </button>
+                <button id="menu-toggle" class="icon-button menu-toggle" type="button" aria-label="Abrir menú" aria-controls="nav-menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </nav>
     </header>
 
@@ -30,7 +48,7 @@
         
         <div class="grid-container">
             <div class="card">
-                <i class="fa-solid fa-bread-slice icon-card"></i>
+                <img class="card-image" src="https://images.unsplash.com/photo-1767065887975-a09671b8d683?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Pan de masa madre artesanal recién horneado" loading="lazy">
                 <h3>Pan de Masa Madre</h3>
                 <p>Sabores: Integral, Nueces, Tradicional.</p>
                 <p><strong>S/ 12.00</strong></p>
@@ -38,7 +56,7 @@
             </div>
 
             <div class="card">
-                <i class="fa-solid fa-cake-candles icon-card"></i>
+                <img class="card-image" src="https://images.unsplash.com/photo-1469533667357-006056eaf780?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Torta de chocolate con cerezas y frutos rojos" loading="lazy">
                 <h3>Torta Selva Negra</h3>
                 <p>Sabores: Chocolate amargo y cerezas.</p>
                 <p><strong>S/ 65.00</strong></p>
@@ -70,6 +88,8 @@
             <i class="fa-brands fa-whatsapp"></i> Enviar Pedido al Chatbot
         </button>
     </section>
+
+    <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="false"></div>
 
     <script src="script.js"></script>
 </body>

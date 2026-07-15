@@ -2,21 +2,41 @@
     --primario: #d35400;
     --oscuro: #2c3e50;
     --claro: #ecf0f1;
+    --fondo: var(--claro);
+    --superficie: #ffffff;
+    --texto: #25313d;
+    --sombra: rgba(44, 62, 80, 0.12);
+    --header: var(--oscuro);
+}
+
+body.dark-mode {
+    --fondo: #151d25;
+    --superficie: #202b35;
+    --texto: #f4f6f7;
+    --sombra: rgba(0, 0, 0, 0.38);
+    --header: #10171e;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    background-color: var(--claro);
+    background-color: var(--fondo);
+    color: var(--texto);
+    transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 header {
-    background: var(--oscuro);
+    background: var(--header);
     color: white;
     padding: 1rem;
     position: sticky;
     top: 0;
     z-index: 100;
+    transition: background-color 0.35s ease;
 }
 
 nav {
@@ -25,13 +45,16 @@ nav {
     align-items: center;
     max-width: 1200px;
     margin: auto;
+    position: relative;
 }
 
 /* Contenedor de la lista */
 nav ul { 
     display: flex; 
     list-style: none; 
-    gap: 15px; /* Espacio entre botones */
+    gap: 15px;
+    margin: 0 0 0 auto;
+    padding: 0;
 }
 
 /* Estilo de los enlaces como botones modernos */
@@ -41,15 +64,106 @@ nav ul li a {
     font-weight: 600;
     padding: 8px 20px;
     border-radius: 50px; /* Bordes redondeados tipo cápsula */
-    transition: all 0.3s ease; /* Suaviza el cambio de color */
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
     border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* Efecto Hover (al pasar el mouse) */
 nav ul li a:hover { 
-    background-color: ; /* El naranja que definimos */
+    background-color: var(--primario);
     border: 1px solid white;
     transform: translateY(-2px); /* Pequeño salto hacia arriba */
+}
+
+.logo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 12px;
+}
+
+.icon-button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50%;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.icon-button:hover {
+    background-color: var(--primario);
+    transform: translateY(-2px);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+.menu-toggle.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.cart-indicator {
+    position: relative;
+    display: inline-flex;
+    padding: 3px 5px 0 0;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 3px;
+    border-radius: 999px;
+    background: var(--primario);
+    color: white;
+    font-size: 0.7rem;
+    line-height: 17px;
+    text-align: center;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cart-count.is-visible {
+    opacity: 1;
+    transform: scale(1);
 }
 .hero {
     height: 40vh;
@@ -60,6 +174,8 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     color: white;
+    text-align: center;
+    padding: 0 1rem;
 }
 
 .grid-container {
@@ -72,14 +188,38 @@ nav ul li a:hover {
 }
 
 .card {
-    background: white;
+    background: var(--superficie);
     padding: 20px;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px var(--sombra);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.35s ease;
 }
 
-.icon-card { font-size: 3rem; color: var(--primario); margin-bottom: 10px; }
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 14px 28px var(--sombra);
+}
+
+.card-image {
+    display: block;
+    width: calc(100% + 40px);
+    height: 220px;
+    margin: -20px -20px 20px;
+    object-fit: cover;
+}
+
+.card button,
+#resumen-pedido button {
+    border: 0;
+    border-radius: 999px;
+    background: var(--primario);
+    color: white;
+    padding: 9px 18px;
+    cursor: pointer;
+    font-weight: 600;
+}
 
 .btn-whatsapp {
     background-color: #25d366;
@@ -92,4 +232,170 @@ nav ul li a:hover {
     margin-top: 20px;
 }
 
-.emblemas { background: #fff; padding: 3rem 1rem; text-align: center; }
+.emblemas {
+    background: var(--superficie);
+    padding: 3rem 1rem;
+    text-align: center;
+    transition: background-color 0.35s ease;
+}
+
+.emblema-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.item-emblema i {
+    color: var(--primario);
+    font-size: 2rem;
+}
+
+.delivery-section,
+.section-title {
+    text-align: center;
+}
+
+.delivery-section {
+    padding: 3rem 1rem;
+}
+
+#resumen-pedido ul {
+    list-style: none;
+    padding: 0;
+}
+
+#resumen-pedido li {
+    margin: 0.75rem 0;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.65s ease, transform 0.65s ease, box-shadow 0.3s ease, background-color 0.35s ease;
+}
+
+.card.reveal.is-visible:hover {
+    transform: scale(1.03);
+}
+
+.toast-container {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 200;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.toast {
+    max-width: min(340px, calc(100vw - 40px));
+    padding: 14px 18px;
+    border-left: 4px solid var(--primario);
+    border-radius: 10px;
+    background: var(--superficie);
+    color: var(--texto);
+    box-shadow: 0 10px 30px var(--sombra);
+    opacity: 0;
+    transform: translateX(24px);
+    transition: opacity 0.28s ease, transform 0.28s ease, background-color 0.35s ease;
+}
+
+.toast.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.toast.is-leaving {
+    opacity: 0;
+    transform: translateX(24px);
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #f5b041;
+    outline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+    header {
+        padding: 0.75rem 1rem;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    nav ul {
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        left: -1rem;
+        right: -1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin: 0;
+        padding: 0 1rem;
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        background: var(--header);
+        box-shadow: 0 12px 20px var(--sombra);
+        transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.25s ease, transform 0.35s ease, visibility 0.35s ease;
+    }
+
+    nav ul.menu-open {
+        max-height: 260px;
+        padding: 0.75rem 1rem 1rem;
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    nav ul li a {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+    }
+
+    .grid-container {
+        padding: 1.25rem;
+    }
+
+    .toast-container {
+        right: 12px;
+        bottom: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
