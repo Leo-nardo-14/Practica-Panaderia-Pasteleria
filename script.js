@@ -177,7 +177,59 @@ themeToggle.addEventListener('click', () => {
     guardarTema(activarOscuro ? 'oscuro' : 'claro');
 });
 
-const elementosAnimados = document.querySelectorAll('.card, .item-emblema, .delivery-section');
+const barraProgreso = document.getElementById('scroll-progress-bar');
+
+function actualizarProgresoScroll() {
+    const documento = document.documentElement;
+    const distanciaDisponible = documento.scrollHeight - documento.clientHeight;
+    const progreso = distanciaDisponible > 0
+        ? Math.min((documento.scrollTop / distanciaDisponible) * 100, 100)
+        : 0;
+
+    barraProgreso.style.width = `${progreso}%`;
+}
+
+window.addEventListener('scroll', actualizarProgresoScroll, { passive: true });
+window.addEventListener('resize', actualizarProgresoScroll);
+actualizarProgresoScroll();
+
+function establecerFlip(tarjeta, volteada) {
+    const frente = tarjeta.querySelector('.card-front');
+    const reverso = tarjeta.querySelector('.card-back');
+    const disparador = tarjeta.querySelector('.card-flip-trigger');
+
+    tarjeta.classList.toggle('is-flipped', volteada);
+    disparador.setAttribute('aria-expanded', String(volteada));
+    frente.setAttribute('aria-hidden', String(volteada));
+    reverso.setAttribute('aria-hidden', String(!volteada));
+    frente.inert = volteada;
+    reverso.inert = !volteada;
+}
+
+document.querySelectorAll('.flip-card').forEach(tarjeta => {
+    const disparador = tarjeta.querySelector('.card-flip-trigger');
+    const botonVolver = tarjeta.querySelector('.flip-back');
+
+    establecerFlip(tarjeta, false);
+
+    disparador.addEventListener('click', evento => {
+        evento.stopPropagation();
+        establecerFlip(tarjeta, true);
+    });
+
+    botonVolver.addEventListener('click', evento => {
+        evento.stopPropagation();
+        establecerFlip(tarjeta, false);
+    });
+
+    tarjeta.addEventListener('click', () => {
+        if (tarjeta.classList.contains('is-flipped')) {
+            establecerFlip(tarjeta, false);
+        }
+    });
+});
+
+const elementosAnimados = document.querySelectorAll('.about-media, .about-content, .card, .item-emblema, .delivery-section');
 
 if ('IntersectionObserver' in window) {
     const observador = new IntersectionObserver((entradas, observer) => {
