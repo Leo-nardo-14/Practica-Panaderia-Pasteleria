@@ -231,6 +231,7 @@ themeToggle.addEventListener('click', () => {
 });
 
 const barraProgreso = document.getElementById('scroll-progress-bar');
+const header = document.querySelector('header');
 
 function actualizarProgresoScroll() {
     const documento = document.documentElement;
@@ -240,11 +241,30 @@ function actualizarProgresoScroll() {
         : 0;
 
     barraProgreso.style.width = `${progreso}%`;
+    header.classList.toggle('is-scrolled', documento.scrollTop > 24);
 }
 
 window.addEventListener('scroll', actualizarProgresoScroll, { passive: true });
 window.addEventListener('resize', actualizarProgresoScroll);
 actualizarProgresoScroll();
+
+const loadingScreen = document.getElementById('loading-screen');
+
+function ocultarPantallaCarga() {
+    setTimeout(() => {
+        loadingScreen.classList.add('is-hidden');
+        loadingScreen.setAttribute('aria-hidden', 'true');
+        setTimeout(() => loadingScreen.remove(), 400);
+    }, 750);
+}
+
+if (document.readyState === 'complete') {
+    ocultarPantallaCarga();
+} else {
+    window.addEventListener('load', ocultarPantallaCarga, { once: true });
+}
+
+document.getElementById('current-year').textContent = new Date().getFullYear();
 
 function establecerFlip(tarjeta, volteada) {
     const frente = tarjeta.querySelector('.card-front');
