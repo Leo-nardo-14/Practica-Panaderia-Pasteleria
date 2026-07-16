@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-attr 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https://images.unsplash.com; frame-src https://www.google.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com https://images.unsplash.com; base-uri 'self'; form-action 'self'; object-src 'none'">
     <title>Miga &amp; Sabor | Panadería y pastelería artesanal en Lima</title>
     <meta name="description" content="Descubre panes artesanales, tortas y postres frescos en Miga &amp; Sabor. Haz tu pedido con delivery en Lima y disfruta recetas hechas con cariño cada día.">
     <meta name="keywords" content="panadería artesanal, pastelería, panes, tortas, postres, delivery, pedidos online, Lima, Miga y Sabor">
@@ -30,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -98,7 +99,7 @@
 
     <section id="nosotros" class="about-section">
         <div class="about-media">
-            <img src="assets/about-bakery-miga-sabor.png" alt="Interior de la panadería artesanal Miga y Sabor" loading="lazy">
+            <img src="assets/img/about-bakery-miga-sabor.png" alt="Interior de la panadería artesanal Miga y Sabor" loading="lazy">
             <span class="about-stamp"><strong>12+</strong> años horneando</span>
         </div>
         <div class="about-content">
@@ -156,7 +157,7 @@
         <div id="resumen-pedido">
             <p>Tu pedido está vacío.</p>
         </div>
-        <button id="checkout-button" class="btn-whatsapp" type="button" onclick="enviarWhatsApp()">
+        <button id="checkout-button" class="btn-whatsapp" type="button">
             <i class="fa-brands fa-whatsapp"></i> Enviar Pedido al Chatbot
         </button>
     </section>
@@ -348,7 +349,10 @@
 
     <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="false"></div>
 
-    <script src="productos.js"></script>
-    <script src="script.js"></script>
+    <script src="js/productos.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/catalogo.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
