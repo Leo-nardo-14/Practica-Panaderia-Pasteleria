@@ -1,0 +1,21 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Dependencias y variables locales
+node_modules/
+.env
+.env.*
+
+# Registros y archivos temporales
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Configuración local de editores
+.vscode/
+.idea/
