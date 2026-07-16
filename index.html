@@ -22,7 +22,6 @@
             <ul id="nav-menu">
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#Pasteles">Catálogo de Pasteles</a></li>
-                <li><a href="#emblemas">Ingredientes</a></li>
                 <li>
                     <a href="#pedidos" class="pedidos-link">
                         Pedidos
@@ -60,7 +59,7 @@
 
     <section id="nosotros" class="about-section">
         <div class="about-media">
-            <img src="https://images.unsplash.com/photo-1726749136023-4b789df06c66?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Panadera amasando pan artesanal en el obrador" loading="lazy">
+            <img src="assets/about-bakery-miga-sabor.png" alt="Interior de la panadería artesanal Miga y Sabor" loading="lazy">
             <span class="about-stamp"><strong>12+</strong> años horneando</span>
         </div>
         <div class="about-content">
@@ -78,91 +77,36 @@
 
     <main id="Pasteles">
         <span class="section-kicker">Recién horneado</span>
-        <h2 class="section-title">Catálogo de Pasteles</h2>
-        
-        <div class="grid-container">
-            <div class="card flip-card">
-                <div class="card-inner">
-                    <div class="card-face card-front">
-                        <span class="product-badge badge-new">Nuevo</span>
-                        <button class="card-flip-trigger" type="button" aria-label="Ver ingredientes del Pan de Masa Madre" aria-expanded="false">
-                            <img class="card-image" src="https://images.unsplash.com/photo-1767065887975-a09671b8d683?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Pan de masa madre artesanal recién horneado" loading="lazy">
-                        </button>
-                        <div class="card-content">
-                            <h3>Pan de Masa Madre</h3>
-                            <p>Sabores: Integral, Nueces, Tradicional.</p>
-                            <p class="product-price">S/ 12.00</p>
-                            <button class="add-button" type="button" onclick="agregarAlPedido('Pan de Masa Madre', 12.00)">Añadir</button>
-                        </div>
-                    </div>
-                    <div class="card-face card-back" aria-hidden="true">
-                        <button class="flip-back" type="button" aria-label="Volver al producto Pan de Masa Madre">
-                            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-                        </button>
-                        <i class="fa-solid fa-wheat-awn card-back-icon" aria-hidden="true"></i>
-                        <h3>Ingredientes principales</h3>
-                        <ul>
-                            <li>Harina de trigo orgánico</li>
-                            <li>Agua filtrada</li>
-                            <li>Sal marina</li>
-                            <li>Masa madre natural</li>
-                        </ul>
-                        <p class="flip-hint">Toca la tarjeta para volver</p>
-                    </div>
+        <h2 class="section-title">Catálogo artesanal</h2>
+
+        <div class="catalog-tools">
+            <div class="search-control">
+                <label for="catalog-search">Buscar productos</label>
+                <div class="search-field">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input id="catalog-search" type="search" placeholder="Ej. chocolate, masa madre…" autocomplete="off">
                 </div>
             </div>
-
-            <div class="card flip-card">
-                <div class="card-inner">
-                    <div class="card-face card-front">
-                        <span class="product-badge">Más vendido</span>
-                        <button class="card-flip-trigger" type="button" aria-label="Ver ingredientes de la Torta Selva Negra" aria-expanded="false">
-                            <img class="card-image" src="https://images.unsplash.com/photo-1469533667357-006056eaf780?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Torta de chocolate con cerezas y frutos rojos" loading="lazy">
-                        </button>
-                        <div class="card-content">
-                            <h3>Torta Selva Negra</h3>
-                            <p>Sabores: Chocolate amargo y cerezas.</p>
-                            <p class="product-price">S/ 65.00</p>
-                            <button class="add-button" type="button" onclick="agregarAlPedido('Torta Selva Negra', 65.00)">Añadir</button>
-                        </div>
-                    </div>
-                    <div class="card-face card-back" aria-hidden="true">
-                        <button class="flip-back" type="button" aria-label="Volver al producto Torta Selva Negra">
-                            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-                        </button>
-                        <i class="fa-solid fa-cake-candles card-back-icon" aria-hidden="true"></i>
-                        <h3>Ingredientes principales</h3>
-                        <ul>
-                            <li>Chocolate amargo</li>
-                            <li>Cerezas seleccionadas</li>
-                            <li>Crema batida</li>
-                            <li>Kirsch</li>
-                        </ul>
-                        <p class="flip-hint">Toca la tarjeta para volver</p>
-                    </div>
-                </div>
+            <div id="category-filters" class="category-filters" role="group" aria-label="Filtrar productos por categoría">
+                <button class="filter-chip is-active" type="button" data-category="Todos" aria-pressed="true">Todos</button>
+                <button class="filter-chip" type="button" data-category="Panes" aria-pressed="false">Panes</button>
+                <button class="filter-chip" type="button" data-category="Tortas" aria-pressed="false">Tortas</button>
+                <button class="filter-chip" type="button" data-category="Postres" aria-pressed="false">Postres</button>
+            </div>
+            <div class="sort-control">
+                <label for="catalog-sort">Ordenar por</label>
+                <select id="catalog-sort">
+                    <option value="relevancia">Relevancia</option>
+                    <option value="precio-asc">Precio: menor a mayor</option>
+                    <option value="precio-desc">Precio: mayor a menor</option>
+                    <option value="nombre">Nombre A-Z</option>
+                </select>
             </div>
         </div>
+
+        <div id="catalog-grid" class="grid-container" aria-live="polite"></div>
+        <p id="catalog-empty" class="catalog-empty" role="status" hidden>No encontramos productos con esa búsqueda.</p>
     </main>
-
-    <div class="recipe-divider" aria-hidden="true">
-        <span></span><i class="fa-solid fa-spoon"></i><span></span>
-    </div>
-
-    <section id="emblemas" class="emblemas">
-        <span class="section-kicker">La diferencia está en el origen</span>
-        <h2>Ingredientes Emblema</h2>
-        <div class="emblema-info">
-            <div class="item-emblema">
-                <i class="fa-solid fa-wheat-awn"></i>
-                <p><strong>Trigo Orgánico:</strong> Base de nuestros panes rústicos.</p>
-            </div>
-            <div class="item-emblema">
-                <i class="fa-solid fa-droplet"></i>
-                <p><strong>Mantequilla Pura:</strong> El secreto de nuestros pasteles.</p>
-            </div>
-        </div>
-    </section>
 
     <div class="recipe-divider" aria-hidden="true">
         <span></span><i class="fa-solid fa-heart"></i><span></span>
@@ -173,13 +117,96 @@
         <div id="resumen-pedido">
             <p>Tu pedido está vacío.</p>
         </div>
-        <button class="btn-whatsapp" onclick="enviarWhatsApp()">
+        <button id="checkout-button" class="btn-whatsapp" type="button" onclick="enviarWhatsApp()">
             <i class="fa-brands fa-whatsapp"></i> Enviar Pedido al Chatbot
         </button>
     </section>
 
+    <div id="checkout-modal" class="modal-overlay" hidden>
+        <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title" aria-describedby="checkout-description">
+            <button id="modal-close" class="modal-close" type="button" aria-label="Cerrar formulario de pedido">×</button>
+            <div id="checkout-content">
+                <span class="section-kicker">Último paso</span>
+                <h2 id="checkout-title">Datos para tu delivery</h2>
+                <p id="checkout-description">Completa tus datos antes de enviar el pedido por WhatsApp.</p>
+
+                <form id="checkout-form" novalidate>
+                <div class="form-field">
+                    <label for="customer-name">Nombre completo</label>
+                    <input id="customer-name" name="nombre" type="text" autocomplete="name" aria-describedby="name-error" required>
+                    <span id="name-error" class="field-error"></span>
+                </div>
+
+                <div class="form-field">
+                    <label for="delivery-address">Dirección de entrega</label>
+                    <input id="delivery-address" name="direccion" type="text" autocomplete="street-address" aria-describedby="address-error" required>
+                    <span id="address-error" class="field-error"></span>
+                </div>
+
+                <div class="form-field">
+                    <label for="payment-method">Método de pago preferido</label>
+                    <select id="payment-method" name="pago">
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Yape">Yape</option>
+                        <option value="Plin">Plin</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="delivery-window">Rango horario de entrega</label>
+                    <select id="delivery-window" name="horario">
+                        <option value="Hoy 3-5pm">Hoy 3-5pm</option>
+                        <option value="Hoy 5-7pm">Hoy 5-7pm</option>
+                        <option value="Mañana 10am-12pm">Mañana 10am-12pm</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="order-notes">Notas adicionales <span>(opcional)</span></label>
+                    <textarea id="order-notes" name="notas" rows="3" placeholder="Referencias, dedicatoria o indicaciones"></textarea>
+                </div>
+
+                <div class="form-field coupon-field">
+                    <label for="coupon-code">¿Tienes un código?</label>
+                    <div class="coupon-control">
+                        <input id="coupon-code" name="cupon" type="text" autocomplete="off" placeholder="Ingresa tu cupón">
+                        <button id="apply-coupon" type="button">Aplicar</button>
+                    </div>
+                    <span id="coupon-message" class="field-message" aria-live="polite"></span>
+                </div>
+
+                <div id="checkout-summary" class="checkout-summary"></div>
+
+                <div class="recommendations-block">
+                    <h3>También te puede interesar</h3>
+                    <div id="checkout-recommendations" class="checkout-recommendations"></div>
+                </div>
+
+                <button class="modal-submit" type="submit">
+                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Confirmar y enviar
+                </button>
+                </form>
+            </div>
+
+            <div id="checkout-success" class="checkout-success" role="status" hidden>
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                <h2>¡Pedido enviado!</h2>
+                <p>Te contactaremos pronto por WhatsApp.</p>
+                <button id="success-close" type="button">Cerrar</button>
+            </div>
+        </section>
+    </div>
+
+    <div id="quick-view-modal" class="modal-overlay" hidden>
+        <section class="quick-view-modal" role="dialog" aria-modal="true" aria-labelledby="quick-view-title">
+            <button id="quick-view-close" class="modal-close" type="button" aria-label="Cerrar vista rápida">×</button>
+            <div id="quick-view-content"></div>
+        </section>
+    </div>
+
     <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="false"></div>
 
+    <script src="productos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
