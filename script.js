@@ -284,7 +284,7 @@ function configurarFlipCards(tarjetas) {
     });
 }
 
-const elementosAnimados = document.querySelectorAll('.about-media, .about-content, .delivery-section');
+const elementosAnimados = document.querySelectorAll('.about-media, .about-content, .delivery-section, .map-container, .visit-info, .faq-item');
 let observador;
 
 if ('IntersectionObserver' in window) {
@@ -740,6 +740,84 @@ checkoutForm.addEventListener('submit', evento => {
     checkoutSuccess.hidden = false;
     setTimeout(() => successClose.focus(), 0);
     window.open(`https://wa.me/${telefono}?text=${mensaje}`, '_blank', 'noopener');
+});
+
+const HORARIO_ATENCION = {
+    0: { abre: 8 * 60, cierra: 14 * 60 },
+    1: { abre: 7 * 60, cierra: 20 * 60 },
+    2: { abre: 7 * 60, cierra: 20 * 60 },
+    3: { abre: 7 * 60, cierra: 20 * 60 },
+    4: { abre: 7 * 60, cierra: 20 * 60 },
+    5: { abre: 7 * 60, cierra: 20 * 60 },
+    6: { abre: 7 * 60, cierra: 20 * 60 }
+};
+
+function formatearHora(minutos) {
+    const horas24 = Math.floor(minutos / 60);
+    const minutosHora = minutos % 60;
+    const periodo = horas24 >= 12 ? 'pm' : 'am';
+    const horas12 = horas24 % 12 || 12;
+    return `${horas12}:${String(minutosHora).padStart(2, '0')}${periodo}`;
+}
+
+function obtenerProximaApertura(fecha) {
+    const diaActual = fecha.getDay();
+    const minutosActuales = fecha.getHours() * 60 + fecha.getMinutes();
+    const horarioHoy = HORARIO_ATENCION[diaActual];
+
+    if (minutosActuales < horarioHoy.abre) {
+        return { textoDia: '', hora: horarioHoy.abre };
+    }
+
+    for (let desplazamiento = 1; desplazamiento <= 7; desplazamiento += 1) {
+        const siguienteDia = (diaActual + desplazamiento) % 7;
+        const horario = HORARIO_ATENCION[siguienteDia];
+        if (horario) {
+            return {
+                textoDia: desplazamiento === 1 ? 'mañana ' : '',
+                hora: horario.abre
+            };
+        }
+    }
+
+    return { textoDia: '', hora: horarioHoy.abre };
+}
+
+function actualizarEstadoHorario(fecha = new Date()) {
+    const horario = HORARIO_ATENCION[fecha.getDay()];
+    const minutosActuales = fecha.getHours() * 60 + fecha.getMinutes();
+    const abierto = minutosActuales >= horario.abre && minutosActuales < horario.cierra;
+    const proximaApertura = abierto ? null : obtenerProximaApertura(fecha);
+
+    document.querySelectorAll('.business-status').forEach(indicador => {
+        indicador.classList.toggle('is-open', abierto);
+        indicador.classList.toggle('is-closed', !abierto);
+        indicador.querySelector('[data-business-status]').textContent = abierto
+            ? 'Abierto ahora'
+            : `Cerrado, abrimos ${proximaApertura.textoDia}a las ${formatearHora(proximaApertura.hora)}`;
+        indicador.querySelector('[data-business-detail]').textContent = abierto
+            ? `Atendemos hasta las ${formatearHora(horario.cierra)}`
+            : 'Puedes dejar tu pedido por WhatsApp.';
+    });
+}
+
+actualizarEstadoHorario();
+setInterval(actualizarEstadoHorario, 60 * 1000);
+
+document.querySelectorAll('.faq-item button').forEach(boton => {
+    boton.addEventListener('click', () => {
+        const debeAbrir = boton.getAttribute('aria-expanded') !== 'true';
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('is-open');
+            item.querySelector('button').setAttribute('aria-expanded', 'false');
+        });
+
+        if (debeAbrir) {
+            boton.closest('.faq-item').classList.add('is-open');
+            boton.setAttribute('aria-expanded', 'true');
+        }
+    });
 });
 
 renderizarCatalogo();
