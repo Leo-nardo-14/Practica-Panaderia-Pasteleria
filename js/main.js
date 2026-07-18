@@ -1,6 +1,5 @@
 const menuToggle = document.getElementById('menu-toggle');
 const navMenu = document.getElementById('nav-menu');
-const themeToggle = document.getElementById('theme-toggle');
 
 function cerrarMenu() {
     navMenu.classList.remove('menu-open');
@@ -18,45 +17,6 @@ menuToggle.addEventListener('click', () => {
 
 navMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', cerrarMenu);
-});
-
-function obtenerTemaGuardado() {
-    try {
-        const tema = localStorage.getItem('tema');
-        return tema === 'oscuro' || tema === 'claro' ? tema : null;
-    } catch {
-        return null;
-    }
-}
-
-function guardarTema(tema) {
-    try {
-        if (tema === 'oscuro' || tema === 'claro') {
-            localStorage.setItem('tema', tema);
-        }
-    } catch {
-        // La interfaz sigue funcionando aunque el almacenamiento no esté disponible.
-    }
-}
-
-function aplicarTema(esOscuro) {
-    const icono = themeToggle.querySelector('i');
-
-    document.body.classList.toggle('dark-mode', esOscuro);
-    themeToggle.setAttribute('aria-pressed', String(esOscuro));
-    themeToggle.setAttribute('aria-label', esOscuro ? 'Activar modo claro' : 'Activar modo oscuro');
-    icono.classList.toggle('fa-moon', !esOscuro);
-    icono.classList.toggle('fa-sun', esOscuro);
-}
-
-const temaGuardado = obtenerTemaGuardado();
-const prefiereOscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
-aplicarTema(temaGuardado ? temaGuardado === 'oscuro' : prefiereOscuro);
-
-themeToggle.addEventListener('click', () => {
-    const activarOscuro = !document.body.classList.contains('dark-mode');
-    aplicarTema(activarOscuro);
-    guardarTema(activarOscuro ? 'oscuro' : 'claro');
 });
 
 const barraProgreso = document.getElementById('scroll-progress-bar');
@@ -133,7 +93,7 @@ function configurarFlipCards(tarjetas) {
     });
 }
 
-const elementosAnimados = document.querySelectorAll('.about-media, .about-content, .delivery-section, .map-container, .visit-info, .faq-item');
+const elementosAnimados = document.querySelectorAll('.delivery-section, .map-container, .visit-info, .faq-item');
 let observador;
 
 if ('IntersectionObserver' in window) {

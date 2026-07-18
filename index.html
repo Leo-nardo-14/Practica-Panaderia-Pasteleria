@@ -29,7 +29,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -37,11 +37,7 @@
 
     <div id="loading-screen" class="loading-screen" role="status" aria-label="Cargando Miga y Sabor">
         <div class="loading-brand" aria-hidden="true">
-            <svg class="brand-baguette" viewBox="0 0 72 72">
-                <path class="baguette-body" d="M15 53C5 43 12 25 25 14S53 7 59 15 59 39 47 51 25 63 15 53Z"/>
-                <path class="baguette-cut" d="M24 22l9 9M37 14l9 9M16 35l9 9"/>
-            </svg>
-            <strong>Miga &amp; Sabor</strong>
+            <img src="assets/img/logo-loading-miga-sabor.png" alt="">
         </div>
     </div>
 
@@ -52,15 +48,14 @@
     <header>
         <nav>
             <a class="logo" href="#top" aria-label="Miga y Sabor, ir al inicio">
-                <svg class="logo-icon brand-baguette" viewBox="0 0 72 72" aria-hidden="true">
-                    <path class="baguette-body" d="M15 53C5 43 12 25 25 14S53 7 59 15 59 39 47 51 25 63 15 53Z"/>
-                    <path class="baguette-cut" d="M24 22l9 9M37 14l9 9M16 35l9 9"/>
-                </svg>
-                <span class="logo-text">Miga &amp; Sabor</span>
+                <span class="header-wordmark">
+                    <strong>Miga &amp; Sabor</strong>
+                    <small>Panadería artesanal</small>
+                </span>
             </a>
             <ul id="nav-menu">
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#Pasteles">Catálogo de Pasteles</a></li>
+                <li><a href="#top">Inicio</a></li>
+                <li><a href="#Pasteles">Catálogo de postres</a></li>
                 <li><a href="#visitanos">Visítanos</a></li>
                 <li>
                     <a href="#pedidos" class="pedidos-link">
@@ -73,9 +68,6 @@
                 </li>
             </ul>
             <div class="nav-actions">
-                <button id="theme-toggle" class="icon-button theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false">
-                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
-                </button>
                 <button id="menu-toggle" class="icon-button menu-toggle" type="button" aria-label="Abrir menú" aria-controls="nav-menu" aria-expanded="false">
                     <span></span>
                     <span></span>
@@ -86,66 +78,20 @@
     </header>
 
     <section id="top" class="hero">
-        <span class="hero-eyebrow">Panadería artesanal desde 2012</span>
-        <h1>Horneamos con pasión y sabor</h1>
-        <p>Tradición y sabor en cada mordida.</p>
-    </section>
-
-    <div class="section-wave" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-            <path d="M0,45 C240,95 480,0 720,42 C960,84 1200,10 1440,48 L1440,80 L0,80 Z"></path>
-        </svg>
-    </div>
-
-    <section id="nosotros" class="about-section">
-        <div class="about-media">
-            <img src="assets/img/about-bakery-miga-sabor.png" alt="Interior de la panadería artesanal Miga y Sabor" loading="lazy">
-            <span class="about-stamp"><strong>12+</strong> años horneando</span>
-        </div>
-        <div class="about-content">
-            <span class="section-kicker">Nuestra historia</span>
-            <h2>El oficio de hornear, compartido con cariño</h2>
-            <p>Miga &amp; Sabor nació como un pequeño obrador familiar, inspirado por recetas que han pasado de generación en generación.</p>
-            <p>Cada madrugada preparamos nuestras masas con ingredientes honestos, fermentaciones lentas y el tiempo que exige un buen pan.</p>
-            <p>Hoy seguimos horneando en lotes pequeños para ofrecer piezas frescas, cercanas y llenas de sabor.</p>
+        <div class="hero-content">
+            <h1>Hecho con amor, para ti.</h1>
+            <p>En Miga &amp; Sabor preservamos el oficio de la panadería artesanal: fermentaciones lentas, ingredientes honestos y piezas frescas horneadas cada día.</p>
+            <a class="hero-button" href="#Pasteles">Descubrir el catálogo <span aria-hidden="true">→</span></a>
         </div>
     </section>
-
-    <div class="recipe-divider" aria-hidden="true">
-        <span></span><i class="fa-solid fa-wheat-awn"></i><span></span>
-    </div>
 
     <main id="Pasteles">
-        <span class="section-kicker">Recién horneado</span>
-        <h2 class="section-title">Catálogo artesanal</h2>
-
-        <div class="catalog-tools">
-            <div class="search-control">
-                <label for="catalog-search">Buscar productos</label>
-                <div class="search-field">
-                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                    <input id="catalog-search" type="search" placeholder="Ej. chocolate, masa madre…" autocomplete="off">
-                </div>
-            </div>
-            <div id="category-filters" class="category-filters" role="group" aria-label="Filtrar productos por categoría">
-                <button class="filter-chip is-active" type="button" data-category="Todos" aria-pressed="true">Todos</button>
-                <button class="filter-chip" type="button" data-category="Panes" aria-pressed="false">Panes</button>
-                <button class="filter-chip" type="button" data-category="Tortas" aria-pressed="false">Tortas</button>
-                <button class="filter-chip" type="button" data-category="Postres" aria-pressed="false">Postres</button>
-            </div>
-            <div class="sort-control">
-                <label for="catalog-sort">Ordenar por</label>
-                <select id="catalog-sort">
-                    <option value="relevancia">Relevancia</option>
-                    <option value="precio-asc">Precio: menor a mayor</option>
-                    <option value="precio-desc">Precio: mayor a menor</option>
-                    <option value="nombre">Nombre A-Z</option>
-                </select>
-            </div>
+        <div class="catalog-heading">
+            <span class="section-kicker">Nuestros favoritos</span>
+            <h2 class="section-title">Para cada momento especial.</h2>
         </div>
 
         <div id="catalog-grid" class="grid-container" aria-live="polite"></div>
-        <p id="catalog-empty" class="catalog-empty" role="status" hidden>No encontramos productos con esa búsqueda.</p>
     </main>
 
     <div class="recipe-divider" aria-hidden="true">
