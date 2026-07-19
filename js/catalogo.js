@@ -35,7 +35,6 @@ function crearCardProducto(producto) {
                     <p class="card-back-description">${descripcion}</p>
                     <h4>Ingredientes principales</h4>
                     <ul>${ingredientes}</ul>
-                    <p class="flip-hint">Toca la tarjeta para volver</p>
                 </div>
             </div>
         </article>

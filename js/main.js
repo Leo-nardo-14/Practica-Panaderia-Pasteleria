@@ -55,6 +55,21 @@ if (document.readyState === 'complete') {
 
 document.getElementById('current-year').textContent = new Date().getFullYear();
 
+const newsletterForm = document.getElementById('newsletter-form');
+newsletterForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const emailInput = document.getElementById('newsletter-email');
+    const message = document.getElementById('newsletter-message');
+
+    if (!emailInput.checkValidity()) {
+        emailInput.reportValidity();
+        return;
+    }
+
+    message.textContent = '¡Gracias! Pronto recibirás nuestras novedades.';
+    newsletterForm.reset();
+});
+
 function establecerFlip(tarjeta, volteada) {
     const frente = tarjeta.querySelector('.card-front');
     const reverso = tarjeta.querySelector('.card-back');
