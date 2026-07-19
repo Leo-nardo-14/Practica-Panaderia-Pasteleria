@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-attr 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https://images.unsplash.com; frame-src https://www.google.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com https://images.unsplash.com; base-uri 'self'; form-action 'self'; object-src 'none'">
-    <title>Miga &amp; Sabor | Panadería y pastelería artesanal en Lima</title>
+    <title>Miga &amp; Sabor | Panadería artesanal en Lima</title>
     <meta name="description" content="Descubre panes artesanales, tortas y postres frescos en Miga &amp; Sabor. Haz tu pedido con delivery en Lima y disfruta recetas hechas con cariño cada día.">
     <meta name="keywords" content="panadería artesanal, pastelería, panes, tortas, postres, delivery, pedidos online, Lima, Miga y Sabor">
     <meta name="author" content="Miga &amp; Sabor">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://tudominio.com/">
 
-    <meta property="og:title" content="Miga &amp; Sabor | Panadería y pastelería artesanal">
+    <meta property="og:title" content="Miga &amp; Sabor | Panadería artesanal">
     <meta property="og:description" content="Panes artesanales, tortas y postres frescos hechos con dedicación. Conoce nuestro catálogo y pide delivery en Lima.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&amp;fit=crop&amp;w=1200&amp;q=85">
@@ -21,12 +21,12 @@
     <meta property="og:site_name" content="Miga &amp; Sabor">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Miga &amp; Sabor | Panadería y pastelería artesanal">
+    <meta name="twitter:title" content="Miga &amp; Sabor | Panadería artesanal">
     <meta name="twitter:description" content="Panes artesanales, tortas y postres frescos hechos con dedicación. Conoce nuestro catálogo y pide delivery en Lima.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&amp;fit=crop&amp;w=1200&amp;q=85">
     <meta name="twitter:image:alt" content="Panes artesanales recién horneados de Miga &amp; Sabor">
 
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="assets/img/favicon-miga-sabor.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -55,6 +55,7 @@
             </a>
             <ul id="nav-menu">
                 <li><a href="#top">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#Pasteles">Catálogo de postres</a></li>
                 <li><a href="#visitanos">Visítanos</a></li>
                 <li>
@@ -79,9 +80,36 @@
 
     <section id="top" class="hero">
         <div class="hero-content">
-            <h1>Hecho con amor, para ti.</h1>
+            <h1>Hecho con <span class="hero-title-accent">amor, para ti.</span></h1>
             <p>En Miga &amp; Sabor preservamos el oficio de la panadería artesanal: fermentaciones lentas, ingredientes honestos y piezas frescas horneadas cada día.</p>
             <a class="hero-button" href="#Pasteles">Descubrir el catálogo <span aria-hidden="true">→</span></a>
+        </div>
+    </section>
+
+    <section id="nosotros" class="about-brand-section" aria-labelledby="nosotros-title">
+        <div class="about-brand-layout">
+            <div class="about-brand-rail" aria-hidden="true">
+                <span class="about-brand-line"></span>
+                <span class="about-brand-seal">
+                    <img src="assets/img/sello-nosotros-miga-sabor.png" alt="">
+                </span>
+            </div>
+
+            <div class="about-brand-main">
+                <div class="about-brand-copy">
+                    <span class="section-kicker">Nuestra historia</span>
+                    <h2 id="nosotros-title">El oficio de hornear, compartido con cariño.</h2>
+                    <div class="about-brand-intro">
+                        <p>Miga &amp; Sabor nació en 2012 como una panadería familiar dedicada a recuperar el sabor auténtico de las recetas artesanales.</p>
+                        <p>Desde entonces elaboramos cada pieza en pequeños lotes, con fermentaciones lentas, ingredientes seleccionados y el cuidado que merece cada cliente.</p>
+                    </div>
+                </div>
+
+                <div class="about-brand-gallery">
+                    <img src="assets/img/nosotros-elaboracion-artesanal.png" alt="Panadero elaborando una masa artesanal a mano" loading="lazy">
+                    <img src="assets/img/nosotros-panaderia-artesanal.png" alt="Panes y croissants recién horneados en la panadería" loading="lazy">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -154,56 +182,81 @@
         </div>
     </section>
 
-    <div class="recipe-divider" aria-hidden="true">
-        <span></span><i class="fa-regular fa-circle-question"></i><span></span>
-    </div>
-
     <section id="faq" class="faq-section">
-        <span class="section-kicker">Resolvemos tus dudas</span>
-        <h2>Preguntas frecuentes</h2>
-        <div class="faq-list">
+        <div class="faq-layout">
+            <div class="faq-content">
+                <span class="section-kicker">Preguntas frecuentes</span>
+                <h2>Estamos para darte siempre la mejor experiencia.</h2>
+                <p class="faq-intro">Aquí resolvemos las dudas más comunes sobre nuestros panes, postres y servicio.</p>
+                <div class="faq-list">
             <article class="faq-item">
-                <h3><button type="button" aria-expanded="false" aria-controls="faq-answer-1" id="faq-question-1">¿Hacen envíos a domicilio?<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
+                <h3><button type="button" aria-expanded="false" aria-controls="faq-answer-1" id="faq-question-1">¿Hacen envíos a domicilio?<span class="faq-plus" aria-hidden="true">+</span></button></h3>
                 <div id="faq-answer-1" class="faq-answer" role="region" aria-labelledby="faq-question-1"><p>Sí. Realizamos delivery en zonas seleccionadas de Lima; la cobertura y el costo se confirman por WhatsApp.</p></div>
             </article>
             <article class="faq-item">
-                <h3><button type="button" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">¿Aceptan pedidos personalizados para eventos?<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
-                <div id="faq-answer-2" class="faq-answer" role="region" aria-labelledby="faq-question-2"><p>Sí. Preparamos tortas y mesas dulces personalizadas para cumpleaños, matrimonios y eventos corporativos.</p></div>
+                <h3><button type="button" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">¿Cuánto demora en llegar mi pedido?<span class="faq-plus" aria-hidden="true">+</span></button></h3>
+                <div id="faq-answer-2" class="faq-answer" role="region" aria-labelledby="faq-question-2"><p>Los pedidos disponibles suelen llegar el mismo día, según la zona y el horario. Al confirmar te indicaremos el rango estimado de entrega.</p></div>
             </article>
             <article class="faq-item">
-                <h3><button type="button" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">¿Cuál es el tiempo de entrega?<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
-                <div id="faq-answer-3" class="faq-answer" role="region" aria-labelledby="faq-question-3"><p>Los productos disponibles suelen entregarse el mismo día. Los pedidos personalizados requieren coordinación previa.</p></div>
+                <h3><button type="button" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">¿Qué zonas cubren?<span class="faq-plus" aria-hidden="true">+</span></button></h3>
+                <div id="faq-answer-3" class="faq-answer" role="region" aria-labelledby="faq-question-3"><p>Atendemos zonas seleccionadas de Lima. Escríbenos por WhatsApp con tu dirección para confirmar cobertura y costo de envío.</p></div>
             </article>
             <article class="faq-item">
-                <h3><button type="button" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">¿Qué métodos de pago aceptan?<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
-                <div id="faq-answer-4" class="faq-answer" role="region" aria-labelledby="faq-question-4"><p>Aceptamos efectivo, Yape y Plin. El método se selecciona al confirmar el pedido.</p></div>
+                <h3><button type="button" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">¿Los productos son artesanales?<span class="faq-plus" aria-hidden="true">+</span></button></h3>
+                <div id="faq-answer-4" class="faq-answer" role="region" aria-labelledby="faq-question-4"><p>Sí. Elaboramos panes y postres en pequeños lotes, con ingredientes seleccionados, procesos cuidados y fermentaciones lentas.</p></div>
             </article>
             <article class="faq-item">
-                <h3><button type="button" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">¿Tienen opciones sin gluten o veganas?<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
-                <div id="faq-answer-5" class="faq-answer" role="region" aria-labelledby="faq-question-5"><p>Trabajamos opciones especiales bajo pedido. Consulta disponibilidad y posibles trazas antes de comprar.</p></div>
+                <h3><button type="button" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">¿Puedo hacer un pedido especial?<span class="faq-plus" aria-hidden="true">+</span></button></h3>
+                <div id="faq-answer-5" class="faq-answer" role="region" aria-labelledby="faq-question-5"><p>Sí. Preparamos tortas y productos personalizados para cumpleaños, celebraciones y eventos. Recomendamos consultar con anticipación.</p></div>
             </article>
             <article class="faq-item">
-                <h3><button type="button" aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">¿Con cuánta anticipación debo hacer mi pedido?<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
-                <div id="faq-answer-6" class="faq-answer" role="region" aria-labelledby="faq-question-6"><p>Recomendamos 48 horas para tortas estándar y entre 5 y 7 días para diseños personalizados o eventos.</p></div>
+                <h3><button type="button" aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">¿Cómo puedo realizar mi pago?<span class="faq-plus" aria-hidden="true">+</span></button></h3>
+                <div id="faq-answer-6" class="faq-answer" role="region" aria-labelledby="faq-question-6"><p>Aceptamos efectivo, Yape y Plin. Puedes elegir tu método preferido al confirmar el pedido.</p></div>
             </article>
+                </div>
+            </div>
+            <div class="faq-visual">
+                <img src="assets/img/faq-panaderia-miga-sabor.png" alt="Torta de chocolate, panes artesanales y croissants recién horneados" loading="lazy">
+            </div>
+        </div>
+        <div class="faq-contact">
+            <div class="faq-contact-copy"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><div><strong>¿No encuentras la respuesta que buscas?</strong><span>Escríbenos por WhatsApp y con gusto te ayudamos.</span></div></div>
+            <a href="https://wa.me/51900000000?text=Hola%2C%20tengo%20una%20consulta%20sobre%20sus%20productos" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Escríbenos por WhatsApp <span aria-hidden="true">→</span></a>
         </div>
     </section>
 
     <footer class="site-footer">
         <div class="footer-content">
-            <a class="footer-brand" href="#top" aria-label="Miga y Sabor, volver al inicio">
-                <svg class="brand-baguette" viewBox="0 0 72 72" aria-hidden="true">
-                    <path class="baguette-body" d="M15 53C5 43 12 25 25 14S53 7 59 15 59 39 47 51 25 63 15 53Z"/>
-                    <path class="baguette-cut" d="M24 22l9 9M37 14l9 9M16 35l9 9"/>
-                </svg>
-                <span>Miga &amp; Sabor</span>
-            </a>
-            <div class="social-links" aria-label="Redes sociales">
-                <a href="#" aria-label="Facebook de Miga y Sabor"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-                <a href="#" aria-label="Instagram de Miga y Sabor"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-                <a href="#" aria-label="TikTok de Miga y Sabor"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+            <div class="footer-main">
+                <div class="footer-about">
+                    <a class="footer-brand" href="#top" aria-label="Miga y Sabor, volver al inicio">
+                        <span class="footer-wordmark"><strong>Miga &amp; Sabor</strong><small>Panadería artesanal</small></span>
+                    </a>
+                    <p class="footer-tagline">Hecho con amor, ingredientes honestos y la pasión de compartir el sabor de siempre.</p>
+                    <div class="social-links" aria-label="Redes sociales de Miga y Sabor">
+                        <a href="#" aria-label="Instagram de Miga y Sabor"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Facebook de Miga y Sabor"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="TikTok de Miga y Sabor"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+                        <a href="https://wa.me/51900000000?text=Hola%2C%20tengo%20una%20consulta%20sobre%20sus%20productos" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de Miga y Sabor"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column"><h3>Tienda</h3><a href="#Pasteles">Todos los productos</a><a href="#Pasteles">Panes y postres</a><a href="#pedidos">Pedidos</a></div>
+                <div class="footer-column"><h3>Nosotros</h3><a href="#nosotros">Nuestra historia</a><a href="#visitanos">Visítanos</a><a href="#faq">Preguntas frecuentes</a></div>
+                <div class="footer-column"><h3>Ayuda</h3><a href="#faq">Preguntas frecuentes</a><a href="#pedidos">Envíos y entregas</a><a href="#pedidos">Métodos de pago</a></div>
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3><p>Recibe novedades y promociones exclusivas.</p>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <label class="sr-only" for="newsletter-email">Correo electrónico</label>
+                        <input id="newsletter-email" name="email" type="email" placeholder="Tu correo electrónico" autocomplete="email" required>
+                        <button type="submit" aria-label="Suscribirse al newsletter">&rarr;</button>
+                    </form>
+                    <span id="newsletter-message" class="newsletter-message" aria-live="polite"></span>
+                </div>
             </div>
-            <p>&copy; <span id="current-year"></span> Miga &amp; Sabor. Todos los derechos reservados.</p>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2026</span> Miga &amp; Sabor. Todos los derechos reservados.</p>
+                <div class="payment-methods" aria-label="Métodos de pago aceptados"><span>VISA</span><span>Mastercard</span><span>AMEX</span><span>Yape</span></div>
+            </div>
         </div>
     </footer>
 
